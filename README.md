@@ -33,7 +33,6 @@ AKstore is a modern, responsive, and fully-featured E-Commerce platform built fr
 | Tailwind CSS            | Express.js             | Prettier & ESLint        |
 | Redux Toolkit           | MongoDB (Mongoose)     | Vite Proxy (Dev)         |
 | Framer Motion           | JSON Web Tokens (JWT)  | Environment Variables    |
-| React Router v7         | bcryptjs               |                          |
 
 ---
 
