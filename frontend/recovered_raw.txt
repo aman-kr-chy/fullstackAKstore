@@ -1,0 +1,24 @@
+const fs = require('fs');
+const logPath = 'C:/Users/Aman kumar/.gemini/antigravity-ide/brain/991ab146-e17b-454e-a1ad-e39a10561a65/.system_generated/logs/transcript_full.jsonl';
+const lines = fs.readFileSync(logPath, 'utf8').split('\n');
+
+for (let i = lines.length - 1; i >= 0; i--) {
+  if (!lines[i].trim()) continue;
+  try {
+      const data = JSON.parse(lines[i]);
+      if (data.type === "VIEW_FILE" && data.content && data.content.includes("export const categories = {")) {
+          console.log("Found in VIEW_FILE!");
+          fs.writeFileSync('recovered_raw.txt', data.content);
+          break;
+      }
+      if (data.type === "PLANNER_RESPONSE" && data.tool_calls) {
+          for (const tc of data.tool_calls) {
+             if (tc.name === "write_to_file" && tc.args && tc.args.CodeContent && tc.args.CodeContent.includes("export const categories = {")) {
+                  console.log("Found in write_to_file!");
+                  fs.writeFileSync('recovered_raw.txt', tc.args.CodeContent);
+                  break;
+             }
+          }
+      }
+  } catch(e) {}
+}
