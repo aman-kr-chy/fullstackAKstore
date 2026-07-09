@@ -94,7 +94,11 @@ The application will now be running on `http://localhost:5173`.
 AKstore is pre-configured for easy deployment.
 
 1. **Frontend:** Can be deployed instantly on [Vercel](https://vercel.com) or [Netlify](https://netlify.com). Ensure you set the `VITE_API_URL` environment variable to point to your live backend.
-2. **Backend:** Can be deployed on services like [Render](https://render.com) or [Railway](https://railway.app). Make sure to configure the `FRONTEND_URL` environment variable to match your live Vercel/Netlify domain to prevent CORS errors.
+2. **Backend:** 
+   
+   [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/aman-kr-chy/fullstackAKstore)
+   
+   Click the button above to instantly deploy the backend. You will be prompted to enter your `MONGO_URI`, `JWT_SECRET`, and `FRONTEND_URL`.
 
 ---
 
